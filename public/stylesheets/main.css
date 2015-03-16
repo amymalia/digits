@@ -1,0 +1,17 @@
+body {
+  padding-top: 0px;  /* Move body of page below navbar. */
+}
+
+.banner {
+  background-image: url("../images/banner.jpg");
+  background-size: cover;
+  height: 250px;
+}
+
+.form {
+  padding: 30px;
+}
+
+.contacts {
+  padding: 30px;
+}
