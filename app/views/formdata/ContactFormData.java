@@ -1,8 +1,9 @@
 package views.formdata;
 
-import java.util.List;
-import java.util.ArrayList;
 import play.data.validation.ValidationError;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by amytakayesu on 3/15/15.
@@ -10,20 +11,30 @@ import play.data.validation.ValidationError;
 public class ContactFormData {
   private static final int NUM_TELEPHONE_DIGITS = 12;
 
-  /**First name field*/
+  /**
+   * First name field.
+   */
   public String firstName = "";
 
-  /**Last name field*/
+  /**
+   * Last name field.
+   */
   public String lastName = "";
 
-  /**Telephone field*/
+  /**
+   * Telephone field.
+   */
   public String telephone = "";
 
-  public List<ValidationError> validate(){
+  /**
+   * Checks for field validations.
+   * @return List of errors or null if there are no errors
+   */
+  public List<ValidationError> validate() {
     List<ValidationError> errors = new ArrayList<>();
 
     if (firstName == null || firstName.length() == 0) {
-      errors.add(new ValidationError("firstName" , "First name is required."));
+      errors.add(new ValidationError("firstName", "First name is required."));
     }
 
     if (lastName == null || lastName.length() == 0) {
