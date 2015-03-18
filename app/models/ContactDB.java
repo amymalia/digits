@@ -56,4 +56,18 @@ public class ContactDB {
     }
   }
 
+  /**
+   * Finds and deletes a contact based on its id
+   * @param id of a contact
+   */
+  public static void deleteContact(long id){
+    if(id == 0) {
+      throw new RuntimeException("Contact does not exist.");
+    }
+    else{
+      contacts.remove(id);
+    }
+  }
+
+
 }
