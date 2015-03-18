@@ -4,6 +4,7 @@ import play.data.validation.ValidationError;
 
 import java.util.ArrayList;
 import java.util.List;
+import models.Contact;
 
 /**
  * Created by amytakayesu on 3/15/15.
@@ -12,19 +13,42 @@ public class ContactFormData {
   private static final int NUM_TELEPHONE_DIGITS = 12;
 
   /**
+   * Contact unique ID
+   */
+  public long id;
+
+  /**
    * First name field.
    */
-  public String firstName = "";
+  public String firstName;
 
   /**
    * Last name field.
    */
-  public String lastName = "";
+  public String lastName;
 
   /**
    * Telephone field.
    */
-  public String telephone = "";
+  public String telephone;
+
+  /**
+   * Default constructor.
+   */
+  public ContactFormData() {
+  }
+
+  /**
+   * Constructor using existing contact.
+   * @param c existing contact
+   */
+  public ContactFormData(Contact c){
+    this.firstName = c.getFirstName();
+    this.lastName = c.getLastName();
+    this.telephone = c.getTelephone();
+    this.id = c.getId();
+  }
+
 
   /**
    * Checks for field validations.
