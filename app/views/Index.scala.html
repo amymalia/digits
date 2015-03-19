@@ -8,7 +8,7 @@
                 @for(contact <- contacts) {
                     <tr><td>@contact.getFirstName()</td> <td>@contact.getLastName</td> <td>@contact.getTelephone()</td>
                         <td><a href="@routes.Application.newContact(contact.getId())"> <button type="button" class="btn btn-success">Edit</button></a></td>
-                            <td><a href="@routes.Application.deleteContact(contact.getId())"><button type="button" class="btn btn-success">Delete</button></a></td>
+                        <td><a href="@routes.Application.deleteContact(contact.getId())"><button type="button" class="btn btn-success">Delete</button></a></td>
                     </tr>
                 }
             </table>

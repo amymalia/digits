@@ -27,13 +27,14 @@ public class Application extends Controller {
    * Returns page1, a simple example of a second page to illustrate navigation.
    *
    * @return The newContact.
+   * @param id the user id
    */
   public static Result newContact(long id) {
     ContactFormData data;
-    if(id == 0){
-      data= new ContactFormData();
+    if (id == 0) {
+      data = new ContactFormData();
     }
-    else{
+    else {
       data = new ContactFormData(ContactDB.getContact(id));
     }
     Form<ContactFormData> formData = Form.form(ContactFormData.class).fill(data);
@@ -60,6 +61,11 @@ public class Application extends Controller {
     }
   }
 
+  /**
+   * Deletes a contact.
+   * @param id the contact id
+   * @return Result the new current contacts page
+   */
   public static Result deleteContact(long id) {
     ContactDB.deleteContact(id);
     return ok(Index.render(ContactDB.getContacts()));
