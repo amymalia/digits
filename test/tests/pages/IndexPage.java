@@ -34,6 +34,12 @@ public class IndexPage extends FluentPage {
     assertThat(title()).isEqualTo("Home (digits)");
   }
 
+  /**
+   * Checks if the contact has been stored in the database.
+   * @param first the first name
+   * @param last the last name
+   * @param telephone the telephone number
+   */
   public void hasContact(String first, String last, String telephone) {
     assertThat(pageSource()).contains(first);
     assertThat(pageSource()).contains(last);
