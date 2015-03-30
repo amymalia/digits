@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
+
 import views.formdata.ContactFormData;
 
 /**
@@ -12,8 +13,11 @@ import views.formdata.ContactFormData;
  * Created by amytakayesu on 3/16/15.
  */
 public class ContactDB {
-  /**List of all current contacts.*/
+  /**
+   * List of all current contacts.
+   */
   public static Map<Long, Contact> contacts = new HashMap<>();
+  /**keeps track of the next id number.*/
   public static long i = 1;
 
   /**
@@ -23,10 +27,10 @@ public class ContactDB {
    */
   public static void addContact(ContactFormData form) {
     long idVal;
-    if(form.id == 0){
+    if (form.id == 0) {
       idVal = i++;
     }
-    else{
+    else {
       idVal = form.id;
     }
     Contact contact = new Contact(idVal, form.firstName, form.lastName, form.telephone);
@@ -43,17 +47,34 @@ public class ContactDB {
   }
 
   /**
-   * Finds and returns a contact based on its id
+   * Finds and returns a contact based on its id.
+   *
+   * @param id the contact id
    * @return a contact
    */
   public static Contact getContact(long id) {
-    if(id != 0) {
+    if (id != 0) {
       Contact c = contacts.get(id);
       return c;
     }
-    else{
+    else {
       throw new RuntimeException("Unable to find contact with given id.");
     }
   }
+
+  /**
+   * Finds and deletes a contact based on its id.
+   *
+   * @param id of a contact
+   */
+  public static void deleteContact(long id) {
+    if (id == 0) {
+      throw new RuntimeException("Contact does not exist.");
+    }
+    else {
+      contacts.remove(id);
+    }
+  }
+
 
 }
