@@ -1,12 +1,12 @@
 package controllers;
 
+import models.ContactDB;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
 import views.formdata.ContactFormData;
 import views.html.Index;
 import views.html.NewContact;
-import models.ContactDB;
 
 
 /**
@@ -26,8 +26,8 @@ public class Application extends Controller {
   /**
    * Returns page1, a simple example of a second page to illustrate navigation.
    *
-   * @return The newContact.
    * @param id the user id
+   * @return The newContact.
    */
   public static Result newContact(long id) {
     ContactFormData data;
@@ -63,6 +63,7 @@ public class Application extends Controller {
 
   /**
    * Deletes a contact.
+   *
    * @param id the contact id
    * @return Result the new current contacts page
    */

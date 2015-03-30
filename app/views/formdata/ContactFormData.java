@@ -1,11 +1,10 @@
 package views.formdata;
 
+import models.Contact;
 import play.data.validation.ValidationError;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import models.Contact;
 
 /**
  * Created by amytakayesu on 3/15/15.

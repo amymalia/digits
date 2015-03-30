@@ -1,12 +1,11 @@
-
 package models;
 
-import java.util.Map;
+import views.formdata.ContactFormData;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.ArrayList;
-
-import views.formdata.ContactFormData;
+import java.util.Map;
 
 /**
  * Keeps track of the contacts in a list.
@@ -17,7 +16,9 @@ public class ContactDB {
    * List of all current contacts.
    */
   public static Map<Long, Contact> contacts = new HashMap<>();
-  /**keeps track of the next id number.*/
+  /**
+   * keeps track of the next id number.
+   */
   public static long i = 1;
 
   /**

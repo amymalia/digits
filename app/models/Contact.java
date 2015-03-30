@@ -16,7 +16,7 @@ public class Contact {
    * @param firstName contact first name
    * @param lastName  contact last name
    * @param telephone contact telephone number
-   * @param id contact id
+   * @param id        contact id
    */
   public Contact(long id, String firstName, String lastName, String telephone) {
     this.firstName = firstName;
