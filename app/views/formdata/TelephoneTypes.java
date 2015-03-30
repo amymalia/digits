@@ -36,7 +36,7 @@ public class TelephoneTypes {
    */
   public static Map<String, Boolean> getTypes(String type) {
     Map<String, Boolean> temp = getTypes();
-    if(isType(type)){
+    if (isType(type)) {
       temp.put(type, true);
     }
     return temp;

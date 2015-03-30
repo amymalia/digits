@@ -58,6 +58,20 @@ public class ContactFormData {
 
 
   /**
+   * Constructor without id.
+   * @param firstName the contact first name.
+   * @param lastName the contact last name.
+   * @param telephone the contact telephone.
+   * @param telephoneType the contact telephoneType.
+   */
+  public ContactFormData(String firstName, String lastName, String telephone, String telephoneType) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.telephone = telephone;
+    this.telephoneType = telephoneType;
+  }
+
+  /**
    * Checks for field validations.
    *
    * @return List of errors or null if there are no errors
