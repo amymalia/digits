@@ -33,6 +33,11 @@ public class ContactFormData {
   public String telephone;
 
   /**
+   * The type of telephone number.
+   */
+  public String telephoneType;
+
+  /**
    * Default constructor.
    */
   public ContactFormData() {
@@ -75,6 +80,9 @@ public class ContactFormData {
       errors.add(new ValidationError("telephone", "Telephone must be xxx-xxx-xxxx."));
     }
 
+    if(!(telephoneType.equals("Home") || telephoneType.equals("Mobile"))) {
+      errors.add(new ValidationError("telephoneType", "Telephone type is invalid"));
+    }
     return errors.isEmpty() ? null : errors;
   }
 

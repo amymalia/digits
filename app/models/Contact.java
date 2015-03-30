@@ -8,6 +8,7 @@ public class Contact {
   String firstName;
   String lastName;
   String telephone;
+  String telephoneType;
   long id;
 
   /**
@@ -18,10 +19,11 @@ public class Contact {
    * @param telephone contact telephone number
    * @param id        contact id
    */
-  public Contact(long id, String firstName, String lastName, String telephone) {
+  public Contact(long id, String firstName, String lastName, String telephone, String telephoneType) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.telephone = telephone;
+    this.telephoneType = telephoneType;
     this.id = id;
   }
 

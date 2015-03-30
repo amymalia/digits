@@ -1,5 +1,6 @@
 package controllers;
 
+import models.Contact;
 import models.ContactDB;
 import play.data.Form;
 import play.mvc.Controller;
@@ -8,12 +9,20 @@ import views.formdata.ContactFormData;
 import views.html.Index;
 import views.html.NewContact;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 /**
  * Provides controllers for this application.
  */
 public class Application extends Controller {
+  public static Map<String, Boolean> telephoneTypes = new HashMap<>();
 
+  public static void fillTypes() {
+    telephoneTypes.put("Home", false);
+    telephoneTypes.put("Mobile", false);
+  }
   /**
    * Returns the home page.
    *
@@ -38,7 +47,7 @@ public class Application extends Controller {
       data = new ContactFormData(ContactDB.getContact(id));
     }
     Form<ContactFormData> formData = Form.form(ContactFormData.class).fill(data);
-    return ok(NewContact.render(formData));
+    return ok(NewContact.render(formData, telephoneTypes));
   }
 
   /**
@@ -51,13 +60,13 @@ public class Application extends Controller {
 
     if (formData.hasErrors()) {
       System.out.println("Errors found.");
-      return badRequest(NewContact.render(formData));
+      return badRequest(NewContact.render(formData, telephoneTypes));
     }
     else {
       ContactFormData data = formData.get();
       models.ContactDB.addContact(data);
       System.out.println("OK: " + data.firstName + " " + data.lastName + " " + data.telephone);
-      return ok(NewContact.render(formData));
+      return ok(NewContact.render(formData, telephoneTypes));
     }
   }
 
