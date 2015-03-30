@@ -81,7 +81,7 @@ public class ContactFormData {
       errors.add(new ValidationError("telephone", "Telephone must be xxx-xxx-xxxx."));
     }
 
-    if (!TelephoneTypes.isType(telephoneType)) {
+    if (TelephoneTypes.isType(telephoneType)) {
       errors.add(new ValidationError("telephoneType", "Telephone type is invalid."));
     }
 

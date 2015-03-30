@@ -70,9 +70,10 @@ public class IntegrationTest {
             String first = "Emmie";
             String last = "Cutie";
             String telephone = "808-222-2222";
-            newContactPage.submitForm(first, last, telephone);
+            String telephoneType = "Work";
+            newContactPage.submitForm(first, last, telephone, telephoneType);
             browser.goTo(indexPage);
-            indexPage.hasContact(first, last, telephone);
+            indexPage.hasContact(first, last, telephone, telephoneType);
           }
         });
   }
