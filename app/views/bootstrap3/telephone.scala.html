@@ -1,0 +1,36 @@
+@(field: Field, field2: Field, optionMap: Map[String, Boolean], isMultiple: Boolean)
+
+<div class="form-group @if(field.hasErrors) {has-error}">
+    <label class="col-sm-2 control-label">Telephone</label>
+    <div class="col-sm-6">
+        <input type="text"
+        class="form-control"
+        id="@field.id"
+        name="@field.name"
+        value="@field.value.getOrElse("")"
+        placeholder="xxx-xxx-xxxx" />
+        <span class="help-block">@{
+            field.error.map { error => error.message}
+        }</span>
+    </div>
+
+    <div class="col-sm-4">
+        <select
+        class="form-control"
+        id="@field2.id"
+        name="@if(isMultiple) {@(field.name + "[]")} else {
+    @field.name
+    }"
+        @if(isMultiple) {multiple="multiple"}>
+        @if(!isMultiple) {
+            <option class="blank" value="">Please select a value</option>
+        }
+        @for((optionName, isSelected) <- optionMap) {
+            <option id="@optionName" value="@optionName" @if(isSelected) {selected}>@optionName </option>
+        }
+        </select>
+        <span class="help-block">@{
+            field.error.map { error => error.message}
+        }</span>
+    </div>
+</div>
