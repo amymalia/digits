@@ -34,7 +34,7 @@ public class ContactDB {
     else {
       idVal = form.id;
     }
-    Contact contact = new Contact(idVal, form.firstName, form.lastName, form.telephone);
+    Contact contact = new Contact(idVal, form.firstName, form.lastName, form.telephone, form.telephoneType);
     contacts.put(idVal, contact);
   }
 

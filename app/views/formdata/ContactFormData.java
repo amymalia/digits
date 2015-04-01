@@ -33,6 +33,11 @@ public class ContactFormData {
   public String telephone;
 
   /**
+   * Telephone type field.
+   */
+  public String telephoneType;
+
+  /**
    * Default constructor.
    */
   public ContactFormData() {
@@ -48,6 +53,7 @@ public class ContactFormData {
     this.lastName = c.getLastName();
     this.telephone = c.getTelephone();
     this.id = c.getId();
+    this.telephoneType = c.getTelephoneType();
   }
 
 
@@ -73,6 +79,10 @@ public class ContactFormData {
 
     if (telephone.length() != NUM_TELEPHONE_DIGITS) {
       errors.add(new ValidationError("telephone", "Telephone must be xxx-xxx-xxxx."));
+    }
+
+    if (!TelephoneTypes.isType(telephoneType)) {
+      errors.add(new ValidationError("telephoneType", "Telephone type is invalid."));
     }
 
     return errors.isEmpty() ? null : errors;
