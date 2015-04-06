@@ -35,7 +35,7 @@ public class ContactFormData {
   /**
    * Telephone type field.
    */
-  public String telephoneType;
+  public String telephoneType = "";
 
   /**
    * Default constructor.
@@ -95,7 +95,7 @@ public class ContactFormData {
       errors.add(new ValidationError("telephone", "Telephone must be xxx-xxx-xxxx."));
     }
 
-    if (TelephoneTypes.isType(telephoneType)) {
+    if (telephoneType == null || (!TelephoneTypes.isType(telephoneType))) {
       errors.add(new ValidationError("telephoneType", "Telephone type is invalid."));
     }
 

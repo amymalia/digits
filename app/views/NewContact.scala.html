@@ -24,8 +24,10 @@
 
             <!-- Telephone -->
             <!-- TelephoneType -->
-        @telephone(contactForm("telephone"),
-            contactForm("telephoneType"),
+        @telephone(textField = contactForm("telephone"),
+            label = "Telephone",
+            placeholder = "Enter your phone number",
+            selectField = contactForm("telephoneType"),
             optionMap = telephoneTypeMap,
             isMultiple = false)
 
